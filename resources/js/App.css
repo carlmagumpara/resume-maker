@@ -1,0 +1,9 @@
+.dropdown-toggle::after {
+  display: none !important; 
+}
+
+.ul-none-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

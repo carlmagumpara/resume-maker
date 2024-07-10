@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('resume_id')->constrained('resumes')->onUpdate('cascade')->onDelete('cascade');
+            $table->char('id', 26)->primary();
+            $table->char('resume_id', 26);
+            $table->foreign('resume_id')->references('id')->on('resumes');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('middle_name')->nullable();

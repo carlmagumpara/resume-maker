@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('resumes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('template_id')->constrained('resumes')->onUpdate('cascade')->onDelete('cascade');
+            $table->char('id', 26)->primary();
+            $table->char('template_id', 26);
+            $table->foreign('template_id')->references('id')->on('templates');
             $table->timestamps();
         });
     }
